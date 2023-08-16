@@ -19,8 +19,9 @@
   color:#242424
 } */
 .mainSection{
-  display:flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: start;
+  justify-content: start;
+  gap: 20px;
 }

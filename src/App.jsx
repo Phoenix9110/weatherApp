@@ -30,11 +30,12 @@ function App () {
   }
   return (
     <main className='container'>
-     <Search onSearchChange={handleOnSearchChange}/>
-     <section className='mainSection'>
-      {currentWeather && <CurrentWeather data={currentWeather} />}
-      { forecast && <Forecast data={forecast} /> }
-     </section>
+      <h1>Weather Forecast</h1>
+      <Search onSearchChange={handleOnSearchChange}/>
+      <section className='mainSection'>
+        { currentWeather && <CurrentWeather data={currentWeather} /> }
+        { forecast && <Forecast data={forecast} /> }
+      </section>
     </main>
   )
 }

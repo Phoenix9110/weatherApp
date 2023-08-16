@@ -32,6 +32,7 @@
   flex: 1 1;
   margin-right: 15px;
   text-align: right;
+  color: #afafaf;
 }
 
 .min-max {
@@ -67,20 +68,20 @@
 }
 .forecastContainer{
   margin: 20px auto 0 auto;
-  padding: 0 20px 20px 20px;
+  justify-self: start;
+  width: 100%;
 }
 .accordion{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-flow: row wrap; /*direction wrap*/
+}
+
+.accordion__item{
+  min-width: 300px;
+  width: 50%;
+  flex-shrink: 3;
 }
 .title{
   grid-column: 1 / span 2;
   grid-row: 1 / 2;
-}
-#daily-item-6{
-  grid-column-start: 4;
-  grid-column-end: end;
-  grid-row-start: 1;
-  grid-row-end: span 2;
 }
