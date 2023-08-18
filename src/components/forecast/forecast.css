@@ -59,12 +59,12 @@
 }
 
 .daily-details-grid-item label:first-child {
-  color: #757575;
+  color: #D5D5D5;
   font-weight: 600;
 }
 
 .daily-details-grid-item label:last-child {
-  color: #727272;
+  color: #fafafa;
 }
 .forecastContainer{
   margin: 20px auto 0 auto;
@@ -77,11 +77,35 @@
 }
 
 .accordion__item{
-  min-width: 300px;
+  min-width: 340px;
   width: 50%;
   flex-shrink: 3;
 }
 .title{
   grid-column: 1 / span 2;
   grid-row: 1 / 2;
+}
+
+@media screen and (max-width: 500px)  {
+  .accordion__item {
+    min-width: 305px;
+  }
+
+  .icon-small {
+    width: 30px;
+  }
+
+  .daily-item .day {
+    margin-left: 5px;
+  }
+
+  .daily-item, 
+  .daily-details-grid {
+    font-size: 13px;
+  }
+
+  .daily-details-grid-item {
+    height: 20px;
+  }
+
 }

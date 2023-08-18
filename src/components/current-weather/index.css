@@ -69,3 +69,10 @@
   width: 100%;
     margin-bottom: 10px;
 }
+
+
+@media screen and (max-width: 500px)  {
+  .weather{
+    width: auto;
+  }
+}
