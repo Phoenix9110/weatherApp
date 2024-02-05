@@ -2,8 +2,8 @@ import { useState } from 'react'
 import Search from './components/search/search'
 import CurrentWeather from './components/current-weather'
 import Forecast from './components/forecast'
-import { WEATHER_API_URL, WEATHER_API_KEY } from './api'
 import './App.css'
+const { VITE_WEATHER_API_URL, VITE_WEATHER_API_KEY } = import.meta.env
 
 function App () {
   const [currentWeather, setCurrentWeather] = useState(null)
@@ -13,10 +13,10 @@ function App () {
     const [lat, lon] = searchData.value.split(' ')
 
     const currentWeatherFetch = fetch(
-      `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+      `${VITE_WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${VITE_WEATHER_API_KEY}&units=metric`
     )
     const forecastFetch = fetch(
-      `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+      `${VITE_WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${VITE_WEATHER_API_KEY}&units=metric`
     )
 
     Promise.all([currentWeatherFetch, forecastFetch])
@@ -31,10 +31,10 @@ function App () {
   return (
     <main className='container'>
       <h1>Weather Forecast</h1>
-      <Search onSearchChange={handleOnSearchChange}/>
+      <Search onSearchChange={handleOnSearchChange} />
       <section className='mainSection'>
-        { currentWeather && <CurrentWeather data={currentWeather} /> }
-        { forecast && <Forecast data={forecast} /> }
+        {currentWeather && <CurrentWeather data={currentWeather} />}
+        {forecast && <Forecast data={forecast} />}
       </section>
     </main>
   )

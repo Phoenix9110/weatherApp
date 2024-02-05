@@ -1,16 +1,24 @@
 /* eslint-disable react/prop-types */
 import { AsyncPaginate } from 'react-select-async-paginate'
 import { useState } from 'react'
-import { GEO_API_URL, GEO_API_OPTIONS } from '../../api'
 import './search.css'
+
+const { VITE_GEO_API_URL, VITE_GEO_API_RAPIDAPI_KEY, VITE_GEO_API_RAPIDAPI_HOST } = import.meta.env
+const API_OPTIONS = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': VITE_GEO_API_RAPIDAPI_KEY,
+    'X-RapidAPI-Host': VITE_GEO_API_RAPIDAPI_HOST
+  }
+}
 
 const Search = ({ onSearchChange }) => {
   const [search, updateSearch] = useState(null)
 
   const loadOptions = (inputValue) => {
     return fetch(
-      `${GEO_API_URL}?minPopulation=1000000&namePrefix=${inputValue}`,
-      GEO_API_OPTIONS
+      `${VITE_GEO_API_URL}?minPopulation=1000000&namePrefix=${inputValue}`,
+      API_OPTIONS
     )
       .then((response) => response.json())
       .then((response) => {
@@ -53,14 +61,14 @@ const Search = ({ onSearchChange }) => {
   }
 
   return (
-        <AsyncPaginate
-          placeholder="Search for city"
-          debounceTimeout={600}
-          value={search}
-          onChange={handleOnChange}
-          loadOptions={loadOptions}
-          styles={customStyles}
-        />
+    <AsyncPaginate
+      placeholder='Search for city'
+      debounceTimeout={600}
+      value={search}
+      onChange={handleOnChange}
+      loadOptions={loadOptions}
+      styles={customStyles}
+    />
   )
 }
 export default Search
